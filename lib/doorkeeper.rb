@@ -7,6 +7,8 @@ require 'doorkeeper/errors'
 require 'doorkeeper/server'
 require 'doorkeeper/request'
 
+require 'doorkeeper/validators/redirect_uri_validator'
+
 module Doorkeeper
   autoload :Validations, "doorkeeper/validations"
 
