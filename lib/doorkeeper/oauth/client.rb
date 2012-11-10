@@ -18,6 +18,10 @@ module Doorkeeper
         end
       end
 
+      def self.register(client_attributes)
+
+      end
+
       delegate :id, :name, :uid, :redirect_uri, :to => :@application
 
       def initialize(application)

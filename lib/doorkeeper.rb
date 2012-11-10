@@ -63,4 +63,12 @@ module Doorkeeper
   def self.installed?
     configured? && database_installed?
   end
+
+  def self.client
+    @client
+  end
+
+  def self.client=(model)
+    @client = model
+  end
 end
