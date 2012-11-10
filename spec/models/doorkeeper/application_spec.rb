@@ -2,46 +2,7 @@ require 'spec_helper_integration'
 
 module Doorkeeper
   describe Application do
-    include OrmHelper
-
-    let(:require_owner) { Doorkeeper.configuration.instance_variable_set("@confirm_application_owner", true) }
-    let(:unset_require_owner) { Doorkeeper.configuration.instance_variable_set("@confirm_application_owner", false) }
     let(:new_application) { FactoryGirl.build(:application) }
-
-    context "application_owner is enabled" do
-      before do
-        Doorkeeper.configure do
-          orm DOORKEEPER_ORM
-          enable_application_owner
-        end
-      end
-
-      context 'application owner is not required' do
-        before(:each) do
-          unset_require_owner
-        end
-
-        it 'is valid given valid attributes' do
-          new_application.should be_valid
-        end
-      end
-
-      context "application owner is required" do
-        before(:each) do
-          require_owner
-          @owner = mock_application_owner
-        end
-
-        it 'is invalid without an owner' do
-          new_application.should_not be_valid
-        end
-
-        it 'is valid with an owner' do
-          new_application.owner = @owner
-          new_application.should be_valid
-        end
-      end
-    end
 
     it 'is invalid without a name' do
       new_application.name = nil
