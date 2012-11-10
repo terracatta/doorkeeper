@@ -1,6 +1,6 @@
 require 'doorkeeper/oauth/client/methods'
 require 'doorkeeper/oauth/client/credentials'
-require 'doorkeeper/oauth/client/validations'
+require 'doorkeeper/oauth/client/registration'
 
 module Doorkeeper
   module OAuth

@@ -1,7 +1,7 @@
 module Doorkeeper
   module OAuth
     class Client
-      class Validations
+      class Registration
         include ActiveModel::Validations
 
         validates :redirect_uri, :uid, :secret, :presence => true

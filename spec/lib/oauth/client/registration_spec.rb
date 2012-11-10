@@ -1,6 +1,6 @@
 require 'spec_helper_integration'
 
-describe Doorkeeper::OAuth::Client::Validations do
+describe Doorkeeper::OAuth::Client::Registration do
   let :attributes do
     {
       :redirect_uri => 'https://tst.com/cb',
