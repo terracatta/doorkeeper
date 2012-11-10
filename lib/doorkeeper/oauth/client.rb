@@ -5,13 +5,13 @@ require 'doorkeeper/oauth/client/registration'
 module Doorkeeper
   module OAuth
     class Client
-      def self.find(uid, method = Doorkeeper::Application.method(:by_uid))
+      def self.find(uid, method = Doorkeeper.client.method(:by_uid))
         if application = method.call(uid)
           new(application)
         end
       end
 
-      def self.authenticate(credentials, method = Doorkeeper::Application.method(:authenticate))
+      def self.authenticate(credentials, method = Doorkeeper.client.method(:authenticate))
         return false if credentials.blank?
         if application = method.call(credentials.uid, credentials.secret)
           new(application)

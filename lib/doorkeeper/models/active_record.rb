@@ -6,6 +6,8 @@ module Doorkeeper
       def doorkeeper_client!(options = {})
         Doorkeeper.client = self
         include Client
+        Doorkeeper::AccessToken.send :include, Association
+        Doorkeeper::AccessGrant.send :include, Association
       end
     end
   end

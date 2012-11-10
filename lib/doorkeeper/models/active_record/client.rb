@@ -38,6 +38,14 @@ module Doorkeeper
         end
         private :generate_secret
       end
+
+      module Association
+        extend ActiveSupport::Concern
+
+        included do
+          belongs_to :application, :class_name => Doorkeeper.client
+        end
+      end
     end
   end
 end
