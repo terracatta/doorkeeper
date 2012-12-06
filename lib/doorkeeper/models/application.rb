@@ -8,10 +8,11 @@ module Doorkeeper
     validates :name, :secret, :uid, :redirect_uri, :presence => true
     validates :uid, :uniqueness => true
     validates :redirect_uri, :redirect_uri => true
+    validates :primary_uri, :redirect_uri => true
 
     before_validation :generate_uid, :generate_secret, :on => :create
 
-    attr_accessible :name, :redirect_uri
+    attr_accessible :name, :redirect_uri, :primary_uri
 
     def self.model_name
       ActiveModel::Name.new(self, Doorkeeper, 'Application')
